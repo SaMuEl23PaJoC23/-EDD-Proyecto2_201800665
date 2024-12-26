@@ -1,0 +1,9 @@
+despuse de haber instalado Graphviz en la computadora (y haber especificado que se agregue a las variables de entorno, en path del sistema). Se debe instalar el entorno de graphviz de python (No afecta en nada que las versiones del entorno de python y la version de graphviz no coincidan, dado que el entorno de python cubre las actualizaciones mas recientes), en la consola se escribe: pip install graphviz
+luego iniciara con la instalacion y listo, luego ya se podria usar... Pero si en dado caso da un error de NotFoudError...
+entonces es necesario CREAR un entorno para las dependencias externas de python, en este caso por Graphviz.
+Desde Visual Studio Code, solo se da clic en la version del interprete de python, en la parte inferior izquierda, donde aparece
+python 1.2.3 ('version de ejemplo') luego en la parte del buscador, en la parte superior, se desplegaran los distintos interpretes que posee, luego como primer opcion, aparece crear un entorno virtual '+ Create a Virtual Environment', al dar clic, pregunta que interprete usar, seleccionar el recomendado que aparece, dado que esa es la version de python que se instalo, luego iniciara con su creacion.
+
+Agregara una carpeta extra al proyecto pero es buena señal, luego nuevamente hay que instalar el entorno de Graphviz de Python,
+dado que ahora es un entorno Aislado, por lo que se debe escribir de nuevo en la consola: pip install graphviz
+al finalizar la instalacion, si volves a probar, AHORA si deberia funcionar.

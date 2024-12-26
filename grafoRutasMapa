@@ -1,0 +1,16 @@
+graph {
+	Oviedo [label=Oviedo color=lightgreen shape=circle style=filled]
+	Bilbao [label=Bilbao color=lightgreen shape=circle style=filled]
+	Zaragoza [label=Zaragoza color=lightgreen shape=circle style=filled]
+	Madrid [label=Madrid color=lightgreen shape=circle style=filled]
+	Valladolid [label=Valladolid color=lightgreen shape=circle style=filled]
+	Barcelona [label=Barcelona color=lightgreen shape=circle style=filled]
+	Gerona [label=Gerona color=lightgreen shape=circle style=filled]
+	Oviedo -- Bilbao [label=304]
+	Bilbao -- Zaragoza [label=324]
+	Bilbao -- Madrid [label=395]
+	Bilbao -- Valladolid [label=280]
+	Zaragoza -- Barcelona [label=296]
+	Barcelona -- Gerona [label=100]
+	Zaragoza -- Madrid [label=325]
+}
