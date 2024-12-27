@@ -1,5 +1,7 @@
 from tkinter import *
+from tkinter import ttk
 from tkinter import filedialog
+from tkinter import messagebox
 from io import open
 from PIL import Image, ImageTk
 from graphviz import Graph
@@ -38,7 +40,7 @@ def cargaArchivoMapa():
             ruta[2] = ruta[2].replace('%','')
             ruta[2] = ruta[2].replace('\n','')
         
-        print("datos Rutas:")
+        print(">>> datos Rutas:")
         for ruta in rutas:#todo: ACA SE INSERTARIAN LOS DATOS A LISTA SIMPLE, lista adyacencia
             print(ruta)
             print("=============================================")
@@ -46,6 +48,7 @@ def cargaArchivoMapa():
         mostrar_botones()
         graphMapa(rutas)
 
+#-----------------------------------------------------------------------
 def cargaArchivoClientes():
     rutaArchivoClientes = filedialog.askopenfilename(initialdir="C:\\Users\\samal\\Desktop\\estructuas proyecto PYTHON") 
     if(rutaArchivoClientes != ""):
@@ -59,7 +62,7 @@ def cargaArchivoClientes():
             datosCliente = linea.split(',')
             clientes.append(datosCliente)
 
-        print("Datos Clientes:")
+        print(">>> Datos Clientes:")
         for cliente in clientes: #se remueve ';' y '\n'
             cliente[5] = cliente[5].replace(';','')
             cliente[5] = cliente[5].replace('\n','')
@@ -108,12 +111,12 @@ def mostrar_botones():
     btnReportes.place(x=220, y=105)
     btnCargaMapa.place_forget() #Permite ocultar boton
 
-#--------Ajustes ventana Clientes------------------------------------------------
+#--------ventana Clientes------------------------------------------------
 def AbrirVentanaClientes():
     mainWindow.withdraw() #Oculta la ventana principal
     ClientesWindow = Toplevel(mainWindow)
     ClientesWindow.title("- Clientes -")
-    ClientesWindow.geometry("500x500")
+    ClientesWindow.geometry("480x370")
     ClientesWindow.config(bg="green")
     ClientesWindow.grab_set() #bloquea la interaccion con la ventana anterior
     centrarVentana(ClientesWindow)
@@ -124,6 +127,101 @@ def AbrirVentanaClientes():
         mainWindow.deiconify() #Muestra nuevamente la ventana principal
     
     ClientesWindow.protocol("WM_DELETE_WINDOW", on_close)
+#--------Funciones ventana Clientes------------------------------------------------
+    def BloqueoCamposClientes():
+        dpi_.config(state='disabled')
+        nombres_.config(state='disabled')
+        apellidos_.config(state='disabled')
+        genero_.config(state='disabled')
+        telefono_.config(state='disabled')
+        direccion_.config(state='disabled')
+
+    def DesbloqueoCamposClientes():
+        dpi_.config(state='normal')
+        nombres_.config(state='normal')
+        apellidos_.config(state='normal')
+        genero_.config(state='normal')
+        telefono_.config(state='normal')
+        direccion_.config(state='normal')
+
+    def seleccionDPI(event):
+        seleccion_dpi = combxDPIclientes.get()
+        print(seleccion_dpi)
+
+    def agregarCliente():
+        DesbloqueoCamposClientes()
+        messagebox.showwarning("Advertencia", "Ya puede ingresar datos!")
+        btnGuardar_clientes.place(x=320, y=260)
+
+    def GuardarEnClientes():
+        if(dpi_.get()!="" and nombres_.get() !="" and apellidos_.get() !="" and genero_ !="" and telefono_.get() !="" and direccion_.get() !=""):
+            print("guarda el dato")
+            btnGuardar_clientes.place_forget() #Permite ocultar boton
+            messagebox.showinfo("Atencion", "Datos guardado")
+            dpi_.insert(0,"")   #Limpia la entrada
+            nombres_.insert(0,"")
+            apellidos_.insert(0,"")
+            genero_.insert(0,"")
+            telefono_.insert(0,"")
+            direccion_.insert(0,"")
+        else:
+            messagebox.showerror("Alerta","Campo(s) vacio(s)...")
+#--------Cuerpo Ventana Clientes---------------------------------------------------
+    btnCargaClientes = Button(ClientesWindow, text="Carga Masiva", bg="orange", command=cargaArchivoClientes)
+    btnCargaClientes.place(x=20, y=5)
+
+    listaDPI=[142,456, 112, 456, 789, 101]  #<<<<< lista temporal
+    combxDPIclientes = ttk.Combobox(ClientesWindow, values=listaDPI)
+    combxDPIclientes.place(x=300, y=15)
+    combxDPIclientes.bind("<<ComboboxSelected>>", seleccionDPI)
+
+    btnAgregarCliente = Button(ClientesWindow, text="Agregar", bg="cyan", command=agregarCliente)
+    btnAgregarCliente.place(x=30, y=55)
+
+    btnEditarCliente = Button(ClientesWindow, text="Editar", bg="cyan")
+    btnEditarCliente.place(x=35, y=105)
+    btnEditarCliente.config(state='disabled')
+    
+    btnEliminarCliente = Button(ClientesWindow, text="Eliminar", bg="cyan")
+    btnEliminarCliente.place(x=200, y=55)
+    btnEliminarCliente.config(state='disabled')
+
+    btnVerClientesEstruct = Button(ClientesWindow, text="Mostrar Estructura", bg="cyan")
+    btnVerClientesEstruct.place(x=170, y=105)
+    btnVerClientesEstruct.config(state='disabled')
+
+    btnGuardar_clientes = Button(ClientesWindow, text="Guardar", bg="red", command=GuardarEnClientes)
+
+    lbDPI = Label(ClientesWindow, text="DPI: ", bg="lightgreen")
+    lbDPI.place(x=50, y=155)
+    dpi_ = Entry(ClientesWindow)
+    dpi_.place(x=90,y=155)
+    
+    lbNombre = Label(ClientesWindow, text="Nombres: ", bg="lightgreen")
+    lbNombre.place(x=20, y=190)
+    nombres_ = Entry(ClientesWindow)
+    nombres_.place(x=90,y=190)
+
+    lbApellidos = Label(ClientesWindow, text="Apellidos: ", bg="lightgreen")
+    lbApellidos.place(x=20, y=225)
+    apellidos_ = Entry(ClientesWindow)
+    apellidos_.place(x=90,y=225)
+
+    lbGenero = Label(ClientesWindow, text="Genero: ", bg="lightgreen")
+    lbGenero.place(x=30, y=260)
+    genero_ = Entry(ClientesWindow)
+    genero_.place(x=90,y=260)
+
+    lbTelefono = Label(ClientesWindow, text="Telefono: ", bg="lightgreen")
+    lbTelefono.place(x=20, y=300)
+    telefono_ = Entry(ClientesWindow)
+    telefono_.place(x=90,y=300)
+
+    lbDireccion = Label(ClientesWindow, text="Direccion: ", bg="lightgreen")
+    lbDireccion.place(x=20, y=335)
+    direccion_ = Entry(ClientesWindow)
+    direccion_.place(x=90,y=335)
+    BloqueoCamposClientes()
 
 #-----------------------------------------------------------------------
 #----------------------Ajustes ventana main-------------------------------------
@@ -135,7 +233,8 @@ centrarVentana(mainWindow)
 mainWindow.resizable(False, False)#Hace que no sea Redimensionable
 #--------------------------------------------------------------------------------
 #-------CUERPO - MAIN -----------------------------------------------------------
-btnCargaMapa = Button(mainWindow, text="INICIAR", bg="red", command=cargaArchivoMapa)
+#btnCargaMapa = Button(mainWindow, text="INICIAR", bg="red", command=cargaArchivoMapa) PARA FUNCIONAMIENTO NORMAL, REMOVER ESTA LINEA
+btnCargaMapa = Button(mainWindow, text="INICIAR", bg="red", command=AbrirVentanaClientes)
 btnCargaMapa.place(x=223, y=40)
 
 btnClientes = Button(mainWindow, text="Clientes", bg="darkgreen", fg="white", command=AbrirVentanaClientes)
