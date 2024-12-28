@@ -5,7 +5,12 @@ from tkinter import messagebox
 from io import open
 from PIL import Image, ImageTk
 from graphviz import Graph
-#-----------------------------------------------------------------------
+
+from circularDoble import CircularDoble
+
+cd = CircularDoble()
+listaDPIcbox = []
+#-----------Funciones Ventana Main--------------------------------------
 def centrarVentana(ventana):
     ventana.update_idletasks()#actualiza la interfaz grafica y procesa cualquier tarea pendiente que este en la cola de eventos
     #Para mostrar ventana principal en el centro:
@@ -22,7 +27,6 @@ def centrarVentana(ventana):
     # Establecer el tamaño y la posición de la ventana
     ventana.geometry(f"{ancho_ventana}x{alto_ventana}+{pos_x}+{pos_y}")
 
-#-----------------------------------------------------------------------
 def cargaArchivoMapa():
     rutaArchivoMapa = filedialog.askopenfilename(initialdir="C:\\Users\\samal\\Desktop\\estructuas proyecto PYTHON") 
     if(rutaArchivoMapa != ""):
@@ -48,30 +52,6 @@ def cargaArchivoMapa():
         mostrar_botones()
         graphMapa(rutas)
 
-#-----------------------------------------------------------------------
-def cargaArchivoClientes():
-    rutaArchivoClientes = filedialog.askopenfilename(initialdir="C:\\Users\\samal\\Desktop\\estructuas proyecto PYTHON") 
-    if(rutaArchivoClientes != ""):
-        archivoClientes = open(rutaArchivoClientes,"r")
-        textoClientes = archivoClientes.readlines()
-        archivoClientes.close()
-
-        datosCliente=[]
-        clientes=[]
-        for linea in textoClientes: #Se separan y almacenan las propiedades de cada Cliente
-            datosCliente = linea.split(',')
-            clientes.append(datosCliente)
-
-        print(">>> Datos Clientes:")
-        for cliente in clientes: #se remueve ';' y '\n'
-            cliente[5] = cliente[5].replace(';','')
-            cliente[5] = cliente[5].replace('\n','')
-
-        for cliente in clientes:#todo: ACA SE INSERTARIAN LOS DATOS A LISTA CIRCULAR
-            print(cliente)
-            print("=============================================")
-
-#-----------------------------------------------------------------------
 def graphMapa(rutas):
     dot = Graph(engine='fdp')
     nodosExistentes=[]
@@ -94,7 +74,6 @@ def graphMapa(rutas):
     dot.render('grafoRutasMapa', format='png')
     actualizarMapa()
 
-#-----------------------------------------------------------------------
 def actualizarMapa():
     imagenMapa = Image.open("grafoRutasMapa.png")
     nuevoSizeMapa = imagenMapa.resize((470, 430), Image.LANCZOS)
@@ -102,7 +81,6 @@ def actualizarMapa():
     lbMapa.config(image=paraMapa)
     lbMapa.image = paraMapa # Guarda una referencia para evitar que imagen sea recolectada por el garbage collector    
 
-#-----------------------------------------------------------------------
 def mostrar_botones():
     btnClientes.place(x=25, y=12)
     btnVehiculos.place(x=400, y=12)
@@ -111,6 +89,7 @@ def mostrar_botones():
     btnReportes.place(x=220, y=105)
     btnCargaMapa.place_forget() #Permite ocultar boton
 
+#-----------------------------------------------------------------------
 #--------ventana Clientes------------------------------------------------
 def AbrirVentanaClientes():
     mainWindow.withdraw() #Oculta la ventana principal
@@ -128,6 +107,32 @@ def AbrirVentanaClientes():
     
     ClientesWindow.protocol("WM_DELETE_WINDOW", on_close)
 #--------Funciones ventana Clientes------------------------------------------------
+    def cargaArchivoClientes():
+        rutaArchivoClientes = filedialog.askopenfilename(initialdir="C:\\Users\\samal\\Desktop\\estructuas proyecto PYTHON") 
+        if(rutaArchivoClientes != ""):
+            archivoClientes = open(rutaArchivoClientes,"r")
+            textoClientes = archivoClientes.readlines()
+            archivoClientes.close()
+
+            datosCliente=[]
+            clientes=[]
+            for linea in textoClientes: #Se separan y almacenan las propiedades de cada Cliente
+                datosCliente = linea.split(',')
+                clientes.append(datosCliente)
+
+            for cliente in clientes: #se remueve ';' y '\n'
+                cliente[5] = cliente[5].replace(';','')
+                cliente[5] = cliente[5].replace('\n','')
+
+            for cliente in clientes:#Se agregan clientes a lista Circular
+                cd.agregarEnCircular(int(cliente[0]), cliente[1], cliente[2], cliente[3], cliente[4], cliente[5])
+            
+            cd.ImprimirCircular()
+            global listaDPIcbox
+            listaDPIcbox = cd.dpiComboBox()
+            combxDPIclientes["values"] = listaDPIcbox
+            habilitarOtrasFuncionesClientes()
+
     def BloqueoCamposClientes():
         dpi_.config(state='disabled')
         nombres_.config(state='disabled')
@@ -144,42 +149,75 @@ def AbrirVentanaClientes():
         telefono_.config(state='normal')
         direccion_.config(state='normal')
 
+    def limpiarCamposClientes():
+        dpi_.delete(0, END)   #Limpia la entrada del campo DPI
+        nombres_.delete(0, END)
+        apellidos_.delete(0, END)
+        genero_.delete(0, END)
+        telefono_.delete(0, END)
+        direccion_.delete(0, END)
+
+    def habilitarOtrasFuncionesClientes():
+        combxDPIclientes.place(x=300, y=15) #Muestra ComboBox
+        btnEditarCliente.config(state='normal')
+        btnEliminarCliente.config(state='normal')
+        btnVerClientesEstruct.config(state='normal')
+
     def seleccionDPI(event):
-        seleccion_dpi = combxDPIclientes.get()
-        print(seleccion_dpi)
+        seleccion_dpi = int(combxDPIclientes.get())   #Seleccion de DPI la toma como str, se debe convertir a int, para comparacion
+        DesbloqueoCamposClientes()
+        limpiarCamposClientes()
+        datosCliente = cd.getDatosCliente(seleccion_dpi)
+        dpi_.insert(0, str(datosCliente.getDPI()))
+        nombres_.insert(0, datosCliente.getNombres())
+        apellidos_.insert(0, datosCliente.getApellidos())
+        genero_.insert(0, datosCliente.getGenero())
+        telefono_.insert(0, datosCliente.getTelefono())
+        direccion_.insert(0, datosCliente.getDireccion())
+        BloqueoCamposClientes()
 
     def agregarCliente():
         DesbloqueoCamposClientes()
+        limpiarCamposClientes()
         messagebox.showwarning("Advertencia", "Ya puede ingresar datos!")
-        btnGuardar_clientes.place(x=320, y=260)
+        btnGuardar_clientes.place(x=320, y=260) #Muesta boton Guardar
+        combxDPIclientes.place_forget() #Oculta ComboBox
 
     def GuardarEnClientes():
         if(dpi_.get()!="" and nombres_.get() !="" and apellidos_.get() !="" and genero_ !="" and telefono_.get() !="" and direccion_.get() !=""):
-            print("guarda el dato")
-            btnGuardar_clientes.place_forget() #Permite ocultar boton
-            messagebox.showinfo("Atencion", "Datos guardado")
-            dpi_.insert(0,"")   #Limpia la entrada
-            nombres_.insert(0,"")
-            apellidos_.insert(0,"")
-            genero_.insert(0,"")
-            telefono_.insert(0,"")
-            direccion_.insert(0,"")
+            if(not cd.existenteEnCircular(int(dpi_.get()))):
+                btnGuardar_clientes.place_forget() #Permite ocultar boton
+                cd.agregarEnCircular(int(dpi_.get()), nombres_.get(), apellidos_.get(), genero_.get(), telefono_.get(), direccion_.get())
+                
+                global listaDPIcbox
+                listaDPIcbox = cd.dpiComboBox()
+                combxDPIclientes["values"] = listaDPIcbox
+                habilitarOtrasFuncionesClientes()
+
+                limpiarCamposClientes()
+                BloqueoCamposClientes()
+                messagebox.showinfo("Atencion", "Datos guardado")    
+                cd.ImprimirCircular()
+            else:
+                dpi_.delete(0, END)
+                messagebox.showerror("Alerta","DPI Ya existente...")
+
         else:
             messagebox.showerror("Alerta","Campo(s) vacio(s)...")
+
+
 #--------Cuerpo Ventana Clientes---------------------------------------------------
     btnCargaClientes = Button(ClientesWindow, text="Carga Masiva", bg="orange", command=cargaArchivoClientes)
     btnCargaClientes.place(x=20, y=5)
 
-    listaDPI=[142,456, 112, 456, 789, 101]  #<<<<< lista temporal
-    combxDPIclientes = ttk.Combobox(ClientesWindow, values=listaDPI)
-    combxDPIclientes.place(x=300, y=15)
+    combxDPIclientes = ttk.Combobox(ClientesWindow, values=listaDPIcbox)
     combxDPIclientes.bind("<<ComboboxSelected>>", seleccionDPI)
 
-    btnAgregarCliente = Button(ClientesWindow, text="Agregar", bg="cyan", command=agregarCliente)
+    btnAgregarCliente = Button(ClientesWindow, text="Agregar Nuevo", bg="cyan", command=agregarCliente)
     btnAgregarCliente.place(x=30, y=55)
 
     btnEditarCliente = Button(ClientesWindow, text="Editar", bg="cyan")
-    btnEditarCliente.place(x=35, y=105)
+    btnEditarCliente.place(x=40, y=105)
     btnEditarCliente.config(state='disabled')
     
     btnEliminarCliente = Button(ClientesWindow, text="Eliminar", bg="cyan")
@@ -190,21 +228,24 @@ def AbrirVentanaClientes():
     btnVerClientesEstruct.place(x=170, y=105)
     btnVerClientesEstruct.config(state='disabled')
 
+    if(listaDPIcbox != []):
+        habilitarOtrasFuncionesClientes()
+
     btnGuardar_clientes = Button(ClientesWindow, text="Guardar", bg="red", command=GuardarEnClientes)
 
     lbDPI = Label(ClientesWindow, text="DPI: ", bg="lightgreen")
     lbDPI.place(x=50, y=155)
-    dpi_ = Entry(ClientesWindow)
+    dpi_ = Entry(ClientesWindow, width=25)
     dpi_.place(x=90,y=155)
     
     lbNombre = Label(ClientesWindow, text="Nombres: ", bg="lightgreen")
     lbNombre.place(x=20, y=190)
-    nombres_ = Entry(ClientesWindow)
+    nombres_ = Entry(ClientesWindow, width=25)
     nombres_.place(x=90,y=190)
 
     lbApellidos = Label(ClientesWindow, text="Apellidos: ", bg="lightgreen")
     lbApellidos.place(x=20, y=225)
-    apellidos_ = Entry(ClientesWindow)
+    apellidos_ = Entry(ClientesWindow, width=25)
     apellidos_.place(x=90,y=225)
 
     lbGenero = Label(ClientesWindow, text="Genero: ", bg="lightgreen")
@@ -214,12 +255,12 @@ def AbrirVentanaClientes():
 
     lbTelefono = Label(ClientesWindow, text="Telefono: ", bg="lightgreen")
     lbTelefono.place(x=20, y=300)
-    telefono_ = Entry(ClientesWindow)
+    telefono_ = Entry(ClientesWindow, width=25)
     telefono_.place(x=90,y=300)
 
     lbDireccion = Label(ClientesWindow, text="Direccion: ", bg="lightgreen")
     lbDireccion.place(x=20, y=335)
-    direccion_ = Entry(ClientesWindow)
+    direccion_ = Entry(ClientesWindow, width=45)
     direccion_.place(x=90,y=335)
     BloqueoCamposClientes()
 
@@ -253,6 +294,5 @@ paraMapa = ImageTk.PhotoImage(nuevoSizeLogo)
 
 lbMapa = Label(mainWindow, image=paraMapa)
 lbMapa.place(x=10, y=150)
-
 #-----------------------------------------------------------------------
 mainWindow.mainloop()
