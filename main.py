@@ -126,12 +126,10 @@ def AbrirVentanaClientes():
 
             for cliente in clientes:#Se agregan clientes a lista Circular
                 cd.agregarEnCircular(int(cliente[0]), cliente[1], cliente[2], cliente[3], cliente[4], cliente[5])
-            
+
+            actualizaComboBoxDPI()
             cd.ImprimirCircular()
-            global listaDPIcbox
-            listaDPIcbox = cd.dpiComboBox()
-            combxDPIclientes["values"] = listaDPIcbox
-            habilitarOtrasFuncionesClientes()
+            messagebox.showwarning("Advertencia", "! Clientes Cargados !")
 
     def BloqueoCamposClientes():
         dpi_.config(state='disabled')
@@ -158,10 +156,18 @@ def AbrirVentanaClientes():
         direccion_.delete(0, END)
 
     def habilitarOtrasFuncionesClientes():
+        lbDPIcBox.place(x=265, y=15)
         combxDPIclientes.place(x=300, y=15) #Muestra ComboBox
         btnEditarCliente.config(state='normal')
         btnEliminarCliente.config(state='normal')
         btnVerClientesEstruct.config(state='normal')
+
+    def desHabilitarOtrasFuncionesCliente():
+        lbDPIcBox.place_forget()
+        combxDPIclientes.place_forget() #Oculta ComboBox
+        btnEditarCliente.config(state='disabled')
+        btnEliminarCliente.config(state='disabled')
+        btnVerClientesEstruct.config(state='disabled')
 
     def seleccionDPI(event):
         seleccion_dpi = int(combxDPIclientes.get())   #Seleccion de DPI la toma como str, se debe convertir a int, para comparacion
@@ -181,18 +187,25 @@ def AbrirVentanaClientes():
         limpiarCamposClientes()
         messagebox.showwarning("Advertencia", "Ya puede ingresar datos!")
         btnGuardar_clientes.place(x=320, y=260) #Muesta boton Guardar
-        combxDPIclientes.place_forget() #Oculta ComboBox
+        desHabilitarOtrasFuncionesCliente()
 
-    def GuardarEnClientes():
+    def actualizaComboBoxDPI():
+        global listaDPIcbox
+        listaDPIcbox = cd.dpiComboBox()
+        combxDPIclientes["values"] = listaDPIcbox
+        combxDPIclientes.set('')
+        if(listaDPIcbox != []):
+            habilitarOtrasFuncionesClientes()
+        else:
+            desHabilitarOtrasFuncionesCliente()
+
+    def guardarNuevoEnClientes():
         if(dpi_.get()!="" and nombres_.get() !="" and apellidos_.get() !="" and genero_ !="" and telefono_.get() !="" and direccion_.get() !=""):
             if(not cd.existenteEnCircular(int(dpi_.get()))):
                 btnGuardar_clientes.place_forget() #Permite ocultar boton
                 cd.agregarEnCircular(int(dpi_.get()), nombres_.get(), apellidos_.get(), genero_.get(), telefono_.get(), direccion_.get())
                 
-                global listaDPIcbox
-                listaDPIcbox = cd.dpiComboBox()
-                combxDPIclientes["values"] = listaDPIcbox
-                habilitarOtrasFuncionesClientes()
+                actualizaComboBoxDPI()
 
                 limpiarCamposClientes()
                 BloqueoCamposClientes()
@@ -205,33 +218,80 @@ def AbrirVentanaClientes():
         else:
             messagebox.showerror("Alerta","Campo(s) vacio(s)...")
 
+    def guardarEditadoEnClientes():
+        if(nombres_.get() !="" and apellidos_.get() !="" and genero_.get() !="" and telefono_.get() !="" and direccion_.get() !=""):
+            cd.editarCliente(int(dpi_.get()), nombres_.get(), apellidos_.get(), genero_.get(), telefono_.get(), direccion_.get())
+
+            dpi_.config(state='normal') #se desbloque campo para luego poder ser limpiado
+            limpiarCamposClientes()
+            BloqueoCamposClientes()
+            habilitarOtrasFuncionesClientes()
+            combxDPIclientes.set('')
+            btnAgregarCliente.config(state='normal')
+            btnCargaClientes.config(state='normal')
+            cd.ImprimirCircular()
+            btnGuardarEditado.place_forget() #Oculta boton
+            messagebox.showinfo("Atencion", "Se guardo Datos editados")    
+
+        else:
+            messagebox.showerror("Alerta","Campo(s) vacio(s)...")
+
+    def eliminarCliente():
+        if(combxDPIclientes.get() != ""):
+            cd.eliminarEnCircular(int(combxDPIclientes.get()))
+            actualizaComboBoxDPI()
+            DesbloqueoCamposClientes()
+            limpiarCamposClientes()
+            BloqueoCamposClientes()
+            print("dato eliminado, restantes: ")
+            cd.ImprimirCircular()
+            messagebox.showwarning("Advertencia", "Cliente eliminado")
+        else:
+            messagebox.showerror("Alerta","! Debe seleccionar DPI primero !")
+
+    def editarCliente():
+        if(combxDPIclientes.get() != ""):
+            DesbloqueoCamposClientes()
+            dpi_.config(state='disabled')
+            desHabilitarOtrasFuncionesCliente()
+            btnAgregarCliente.config(state='disabled')
+            btnCargaClientes.config(state='disabled')
+            btnGuardarEditado.place(x=320, y=260)
+
+        else:
+            messagebox.showerror("Alerta","! Debe seleccionar DPI primero !")
+
+    def generarEstructura():
+        cd.graficarCircular()
 
 #--------Cuerpo Ventana Clientes---------------------------------------------------
     btnCargaClientes = Button(ClientesWindow, text="Carga Masiva", bg="orange", command=cargaArchivoClientes)
     btnCargaClientes.place(x=20, y=5)
 
-    combxDPIclientes = ttk.Combobox(ClientesWindow, values=listaDPIcbox)
+    lbDPIcBox = Label(ClientesWindow, text="DPI: ", bg="lightblue")
+    combxDPIclientes = ttk.Combobox(ClientesWindow, values=listaDPIcbox, state="readonly")
     combxDPIclientes.bind("<<ComboboxSelected>>", seleccionDPI)
 
     btnAgregarCliente = Button(ClientesWindow, text="Agregar Nuevo", bg="cyan", command=agregarCliente)
     btnAgregarCliente.place(x=30, y=55)
 
-    btnEditarCliente = Button(ClientesWindow, text="Editar", bg="cyan")
+    btnEditarCliente = Button(ClientesWindow, text="Editar", bg="cyan", command=editarCliente)
     btnEditarCliente.place(x=40, y=105)
     btnEditarCliente.config(state='disabled')
     
-    btnEliminarCliente = Button(ClientesWindow, text="Eliminar", bg="cyan")
+    btnEliminarCliente = Button(ClientesWindow, text="Eliminar", bg="cyan", command=eliminarCliente)
     btnEliminarCliente.place(x=200, y=55)
     btnEliminarCliente.config(state='disabled')
 
-    btnVerClientesEstruct = Button(ClientesWindow, text="Mostrar Estructura", bg="cyan")
+    btnVerClientesEstruct = Button(ClientesWindow, text="Mostrar Estructura", bg="cyan", command=generarEstructura)
     btnVerClientesEstruct.place(x=170, y=105)
     btnVerClientesEstruct.config(state='disabled')
 
     if(listaDPIcbox != []):
         habilitarOtrasFuncionesClientes()
 
-    btnGuardar_clientes = Button(ClientesWindow, text="Guardar", bg="red", command=GuardarEnClientes)
+    btnGuardar_clientes = Button(ClientesWindow, text="Guardar", bg="red", command=guardarNuevoEnClientes)
+    btnGuardarEditado = Button(ClientesWindow, text="Guardar Editado", bg="red", command=guardarEditadoEnClientes)
 
     lbDPI = Label(ClientesWindow, text="DPI: ", bg="lightgreen")
     lbDPI.place(x=50, y=155)

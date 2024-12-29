@@ -1,0 +1,15 @@
+digraph CircularClientes {
+	graph [rankdir=LR]
+	3001 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3001</TD></TR> <TR><TD>samuel</TD></TR> <TR><TD>pajoc</TD></TR> <TR><TD>masculino</TD></TR> <TR><TD>1234</TD></TR> <TR><TD>233445 dfgrgfdg</TD></TR> </TABLE> > fillcolor=lightblue style=filled]
+	3001 -> 221374732231
+	221374732231 -> 3001
+	221374732231 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>221374732231</TD></TR> <TR><TD> Jose Carlos</TD></TR> <TR><TD> Lopez Morales</TD></TR> <TR><TD> Masculino</TD></TR> <TR><TD> 54789832</TD></TR> <TR><TD> 19 Av. 17-01 Z.6 Ciudad de Guatemala</TD></TR> </TABLE> > fillcolor=lightblue style=filled]
+	221374732231 -> 342123954521
+	342123954521 -> 221374732231
+	342123954521 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>342123954521</TD></TR> <TR><TD> Gabriela</TD></TR> <TR><TD> Perez Sandoval</TD></TR> <TR><TD> Femenino</TD></TR> <TR><TD> 45621892</TD></TR> <TR><TD> 20 Calle 19-78 Z.7 Ciudad de Guatemala</TD></TR> </TABLE> > fillcolor=lightblue style=filled]
+	342123954521 -> 465321232212
+	465321232212 -> 342123954521
+	465321232212 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>465321232212</TD></TR> <TR><TD> Carlos Alejandro</TD></TR> <TR><TD> Flores Gomez</TD></TR> <TR><TD> Masculino</TD></TR> <TR><TD> 54678976</TD></TR> <TR><TD> 4ta Av. 12-08 Z.5 Ciudad de Guatemala</TD></TR> </TABLE> > fillcolor=lightblue style=filled]
+	465321232212 -> 3001
+	3001 -> 465321232212
+}

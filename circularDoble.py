@@ -1,4 +1,5 @@
 from nodoCircular import NodoCircular
+from graphviz import Digraph
 
 class CircularDoble():
 
@@ -65,7 +66,6 @@ class CircularDoble():
             self.__primero = nuevo
 
         self.__largo += 1
-
     #----------------------------------------------------------
     def existenteEnCircular(self, dpi):
         if(self.__primero != None):
@@ -80,7 +80,26 @@ class CircularDoble():
         
         else:
             return False
-        
+    #----------------------------------------------------------
+    def editarCliente(self, dpi, nombres, apellidos, genero, telefono, direccion):
+            if(self.__primero != None):
+                temp = self.__primero
+                
+                while True:
+                    if(dpi == temp.getDPI()):
+                        temp.setNombres(nombres)
+                        temp.setApellidos(apellidos)
+                        temp.setGenero(genero)
+                        temp.setTelefono(telefono)
+                        temp.setDireccion(direccion)
+                        break
+
+                    temp = temp.getDrchaCircular()
+                    if(temp == self.__primero):
+                        print("Dato no existente, no editar...")
+            
+            else:
+                print("Lista Vacia, No editar!")
     #----------------------------------------------------------
     def eliminarEnCircular(self, dpi):
         if(self.__primero != None):
@@ -92,7 +111,7 @@ class CircularDoble():
                     self.__primero = None
                     self.__largo = 0
                 else:
-                    print("Valor no existente en lista Circular...")
+                    print("Valor no existente, en lista Circular...")
 
             elif(self.__largo > 1):
                 while True:
@@ -107,11 +126,11 @@ class CircularDoble():
 
                     temp = temp.getDrchaCircular()
                     if(temp == self.__primero):
-                        print("Valor no existente en lista Circular...")
+                        print("Valor no existente, en lista Circular...")
                         break
 
         else:
-            print("Lista Vacia!")
+            print("Lista Vacia, No eliminar!")
     #----------------------------------------------------------
     def getDatosCliente(self, dpi):
         if(self.__primero != None):
@@ -125,7 +144,6 @@ class CircularDoble():
         
         print("No hay datos que coincida...")
         return None
-
     #----------------------------------------------------------
     def dpiComboBox(self):
         if(self.__primero != None):
@@ -142,7 +160,6 @@ class CircularDoble():
         else:
             print("No hay nada para ComboBox...")
             return []
-
     #----------------------------------------------------------
     def ImprimirCircular(self):
         if(self.__primero != None):
@@ -162,4 +179,30 @@ class CircularDoble():
                 if(temp == self.__primero):
                     break
         else:
-            print("No hay nada que mostrar...")
+            print("Lista Vacia, No Imprimir!")
+    #----------------------------------------------------------
+    def graficarCircular(self):
+        if(self.__primero != None):
+            temp = self.__primero   
+            siguiente = None
+
+            #creacion de grafo dirigido
+            dot = Digraph(name='CircularClientes', graph_attr={'rankdir': 'LR'})
+            
+            #Agrega nodos
+            while True:
+                dot.node(str(temp.getDPI()), label='< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>'+str(temp.getDPI())+'</TD></TR> <TR><TD>'+temp.getNombres()+'</TD></TR> <TR><TD>'+temp.getApellidos()+'</TD></TR> <TR><TD>'+temp.getGenero()+'</TD></TR> <TR><TD>'+temp.getTelefono()+'</TD></TR> <TR><TD>'+temp.getDireccion()+'</TD></TR> </TABLE> >', style='filled', fillcolor='lightblue')
+                
+                #Agrega Enlaces dobles entre nodos
+                siguiente = temp.getDrchaCircular()
+                dot.edge(str(temp.getDPI()), str(siguiente.getDPI()))
+                dot.edge(str(siguiente.getDPI()), str(temp.getDPI()))
+                
+                temp = temp.getDrchaCircular()
+                if(temp == self.__primero):
+                    break
+            #Guarda y renderiza el grafico
+            dot.render('Graph_Circular', format='png', view=True)   #view=True, permite ver automaticamente la imagen generada
+
+        else:
+            print("Lista Vacia, no Graficar!")
