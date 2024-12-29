@@ -10,7 +10,7 @@ from circularDoble import CircularDoble
 
 cd = CircularDoble()
 listaDPIcbox = []
-#-----------Funciones Ventana Main--------------------------------------
+#===================== Funciones Ventana Main ============================
 def centrarVentana(ventana):
     ventana.update_idletasks()#actualiza la interfaz grafica y procesa cualquier tarea pendiente que este en la cola de eventos
     #Para mostrar ventana principal en el centro:
@@ -89,7 +89,7 @@ def mostrar_botones():
     btnReportes.place(x=220, y=105)
     btnCargaMapa.place_forget() #Permite ocultar boton
 
-#-----------------------------------------------------------------------
+#------------------------------------------------------------------------
 #--------ventana Clientes------------------------------------------------
 def AbrirVentanaClientes():
     mainWindow.withdraw() #Oculta la ventana principal
@@ -99,6 +99,7 @@ def AbrirVentanaClientes():
     ClientesWindow.config(bg="green")
     ClientesWindow.grab_set() #bloquea la interaccion con la ventana anterior
     centrarVentana(ClientesWindow)
+    ClientesWindow.resizable(False, False)#Hace que no sea Redimensionable
 
     def on_close():
         ClientesWindow.grab_release() #Libera el bloqueo de eventos
@@ -124,8 +125,8 @@ def AbrirVentanaClientes():
                 cliente[5] = cliente[5].replace(';','')
                 cliente[5] = cliente[5].replace('\n','')
 
-            for cliente in clientes:#Se agregan clientes a lista Circular
-                cd.agregarEnCircular(int(cliente[0]), cliente[1], cliente[2], cliente[3], cliente[4], cliente[5])
+                #Se agrega cliente a lista Circular
+                cd.agregarEnCircular(int(cliente[0]), cliente[1], cliente[2], cliente[3], cliente[4], cliente[5])                
 
             actualizaComboBoxDPI()
             cd.ImprimirCircular()
@@ -263,7 +264,6 @@ def AbrirVentanaClientes():
 
     def generarEstructura():
         cd.graficarCircular()
-
 #--------Cuerpo Ventana Clientes---------------------------------------------------
     btnCargaClientes = Button(ClientesWindow, text="Carga Masiva", bg="orange", command=cargaArchivoClientes)
     btnCargaClientes.place(x=20, y=5)
@@ -324,23 +324,73 @@ def AbrirVentanaClientes():
     direccion_.place(x=90,y=335)
     BloqueoCamposClientes()
 
-#-----------------------------------------------------------------------
-#----------------------Ajustes ventana main-------------------------------------
+#-------------------------------------------------------------------------
+#--------ventana Vehiculos------------------------------------------------
+def AbrirVentanaVehiculos():
+    mainWindow.withdraw() #Oculta la ventana principal
+    VehiculosWindow = Toplevel(mainWindow)
+    VehiculosWindow.title("- Vehiculos -")
+    VehiculosWindow.geometry("240x100")
+    VehiculosWindow.config(bg="brown")
+    VehiculosWindow.grab_set() #bloquea la interaccion con la ventana anterior
+    centrarVentana(VehiculosWindow)
+    VehiculosWindow.resizable(False, False)#Hace que no sea Redimensionable
+
+    def on_close():
+        VehiculosWindow.grab_release() #Libera el bloqueo de eventos
+        VehiculosWindow.destroy()
+        mainWindow.deiconify() #Muestra nuevamente la ventana principal
+    
+    VehiculosWindow.protocol("WM_DELETE_WINDOW", on_close)
+#--------Funciones ventana Clientes------------------------------------------------
+    def cargaArchivoVehiculos():
+        rutaArchivoVehiculos = filedialog.askopenfilename(initialdir="C:\\Users\\samal\\Desktop\\estructuas proyecto PYTHON") 
+        if(rutaArchivoVehiculos != ""):
+            archivoVehiculos = open(rutaArchivoVehiculos,"r")
+            textoVehiculos = archivoVehiculos.readlines()
+            archivoVehiculos.close()
+
+            datosVehiculo=[]
+            vehiculos=[]
+            for linea in textoVehiculos: #Se separan y almacenan las propiedades de cada Vehiculo
+                datosVehiculo = linea.split(':')
+                vehiculos.append(datosVehiculo)
+
+            print("======== Datos Vehiculos: ========")
+            for vehiculo in vehiculos: #se remueve ';' y '\n'
+                vehiculo[3] = vehiculo[3].replace(';','')
+                vehiculo[3] = vehiculo[3].replace('\n','')
+
+                #Se agregan Vehiculos a Arbol B
+                print("placa: "+vehiculo[0])
+                print("Marca: "+vehiculo[1])
+                print("Modelo: "+vehiculo[2])
+                print("Precio (Q): "+vehiculo[3]+"\n")
+
+            messagebox.showwarning("Advertencia", "! Vehiculos Cargados !")
+#--------Cuerpo Ventana Vehiculos---------------------------------------------------
+    btnCargaVehiculos = Button(VehiculosWindow, text="Carga Masiva", bg="black", fg="white", command=cargaArchivoVehiculos)
+    btnCargaVehiculos.place(x=80, y=35)
+
+
+#===================================================================================
+#========================== Ajustes ventana main ===================================
 mainWindow = Tk()
 mainWindow.title("LLEGA RAPIDITO")
 mainWindow.geometry("500x600")
 mainWindow.config(bg='orange')
 centrarVentana(mainWindow)
 mainWindow.resizable(False, False)#Hace que no sea Redimensionable
-#--------------------------------------------------------------------------------
-#-------CUERPO - MAIN -----------------------------------------------------------
+#===================================================================================
+#======================= CUERPO - MAIN =============================================
 #btnCargaMapa = Button(mainWindow, text="INICIAR", bg="red", command=cargaArchivoMapa) PARA FUNCIONAMIENTO NORMAL, REMOVER ESTA LINEA
-btnCargaMapa = Button(mainWindow, text="INICIAR", bg="red", command=AbrirVentanaClientes)
+#btnCargaMapa = Button(mainWindow, text="INICIAR", bg="red", command=AbrirVentanaClientes) PARA PROBAR VENTANA CLIENTES
+btnCargaMapa = Button(mainWindow, text="INICIAR", bg="red", command=AbrirVentanaVehiculos)
 btnCargaMapa.place(x=223, y=40)
 
 btnClientes = Button(mainWindow, text="Clientes", bg="darkgreen", fg="white", command=AbrirVentanaClientes)
 
-btnVehiculos = Button(mainWindow, text="Vehiculos", bg="darkgreen", fg="white", command=AbrirVentanaClientes)
+btnVehiculos = Button(mainWindow, text="Vehiculos", bg="darkgreen", fg="white", command=AbrirVentanaVehiculos)
 
 btnViajes = Button(mainWindow, text="Viajes", bg="darkgreen", fg="white", command=AbrirVentanaClientes)
 
