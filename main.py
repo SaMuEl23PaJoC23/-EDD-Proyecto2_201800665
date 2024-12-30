@@ -14,7 +14,7 @@ from listaSimple import ListaSimple
 cd = CircularDoble()
 ls = ListaSimple()
 
-listaLugarescbox = ["Guatemala","Peten","Huehuetenango","Jalapa"]
+listaLugarescbox = []
 listaDPIcbox = []
 listaPLACAcbox = []
 datosVehiculos = []
@@ -667,10 +667,10 @@ centrarVentana(mainWindow)
 mainWindow.resizable(False, False)#Hace que no sea Redimensionable
 #===================================================================================
 #======================= CUERPO - MAIN =============================================
-#btnCargaMapa = Button(mainWindow, text="INICIAR", bg="red", command=cargaArchivoMapa) #PARA FUNCIONAMIENTO NORMAL, REMOVER ESTA LINEA
+btnCargaMapa = Button(mainWindow, text="INICIAR", bg="red", command=cargaArchivoMapa) #PARA FUNCIONAMIENTO NORMAL, REMOVER ESTA LINEA
 #btnCargaMapa = Button(mainWindow, text="INICIAR", bg="red", command=AbrirVentanaClientes) #PARA PROBAR VENTANA CLIENTES
 #btnCargaMapa = Button(mainWindow, text="INICIAR", bg="red", command=AbrirVentanaVehiculos)  #PARA PROBAR VENTANA VEHICULOS
-btnCargaMapa = Button(mainWindow, text="INICIAR", bg="red", command=AbrirVentanaViajes)  #PARA PROBAR VENTANA VIAJES
+#btnCargaMapa = Button(mainWindow, text="INICIAR", bg="red", command=AbrirVentanaViajes)  #PARA PROBAR VENTANA VIAJES
 btnCargaMapa.place(x=223, y=40)
 
 btnClientes = Button(mainWindow, text="Clientes", bg="darkgreen", fg="white", command=AbrirVentanaClientes)

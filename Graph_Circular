@@ -1,23 +1,11 @@
 digraph CircularClientes {
 	graph [rankdir=LR]
-	3000853700101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700101</TD></TR> <TR><TD> Elian</TD></TR> <TR><TD> Estrada</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 35384675</TD></TR> <TR><TD> Villa Nueva Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
-	3000853700101 -> 3000853700102
-	3000853700102 -> 3000853700101
-	3000853700102 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700102</TD></TR> <TR><TD> Leila</TD></TR> <TR><TD> Gomez</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41538432</TD></TR> <TR><TD> Guatemala Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
-	3000853700102 -> 3000853700103
-	3000853700103 -> 3000853700102
-	3000853700103 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700103</TD></TR> <TR><TD> Emy</TD></TR> <TR><TD> Ruiz</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41538433</TD></TR> <TR><TD> Petapa Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
-	3000853700103 -> 3000853700104
-	3000853700104 -> 3000853700103
-	3000853700104 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700104</TD></TR> <TR><TD> Roxana</TD></TR> <TR><TD> Lopez</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41538434</TD></TR> <TR><TD> Mixco Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700104 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700104</TD></TR> <TR><TD>Lucia</TD></TR> <TR><TD>Raymundo</TD></TR> <TR><TD>Femenino</TD></TR> <TR><TD>4042</TD></TR> <TR><TD>Villa Nueva</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
 	3000853700104 -> 3000853700105
 	3000853700105 -> 3000853700104
 	3000853700105 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700105</TD></TR> <TR><TD> Angela</TD></TR> <TR><TD> Pelaez</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41538435</TD></TR> <TR><TD> Chiquimula Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
-	3000853700105 -> 3000853700106
-	3000853700106 -> 3000853700105
-	3000853700106 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700106</TD></TR> <TR><TD> Isabel</TD></TR> <TR><TD> Gutierrez</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41538436</TD></TR> <TR><TD> Peten Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
-	3000853700106 -> 3000853700107
-	3000853700107 -> 3000853700106
+	3000853700105 -> 3000853700107
+	3000853700107 -> 3000853700105
 	3000853700107 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700107</TD></TR> <TR><TD> Andrea</TD></TR> <TR><TD> Arriola</TD></TR> <TR><TD> F</TD></TR> <TR><TD>41538437</TD></TR> <TR><TD> Zona 1 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
 	3000853700107 -> 3000853700108
 	3000853700108 -> 3000853700107
@@ -130,12 +118,12 @@ digraph CircularClientes {
 	3000853780101 -> 3000853790101
 	3000853790101 -> 3000853780101
 	3000853790101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853790101</TD></TR> <TR><TD> Carlo</TD></TR> <TR><TD> Arriola</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41588434</TD></TR> <TR><TD> Zona 12 de Mixco Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
-	3000853790101 -> 3001853700101
-	3001853700101 -> 3000853790101
-	3001853700101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3001853700101</TD></TR> <TR><TD> Hernaldo</TD></TR> <TR><TD> Juarez</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41598434</TD></TR> <TR><TD> Zona 13 de Mixco Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
-	3001853700101 -> 3002853700101
-	3002853700101 -> 3001853700101
+	3000853790101 -> 3002853700101
+	3002853700101 -> 3000853790101
 	3002853700101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3002853700101</TD></TR> <TR><TD> Luis</TD></TR> <TR><TD> Filomeno</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41138434</TD></TR> <TR><TD> Zona 14 de Mixco Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
-	3002853700101 -> 3000853700101
-	3000853700101 -> 3002853700101
+	3002853700101 -> 3045878770115
+	3045878770115 -> 3002853700101
+	3045878770115 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3045878770115</TD></TR> <TR><TD>samuel alejandro</TD></TR> <TR><TD>pajoc Raymundo</TD></TR> <TR><TD>M</TD></TR> <TR><TD>40420033</TD></TR> <TR><TD>16 av. 15-34 Zona 4 Villa Nueva</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3045878770115 -> 3000853700104
+	3000853700104 -> 3045878770115
 }

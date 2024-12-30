@@ -1,8 +1,8 @@
 digraph ListaViajes {
 	graph [rankdir=LR]
-	1010 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>1010</TD></TR> <TR><TD>Guatemala</TD></TR> <TR><TD>Peten</TD></TR> <TR><TD>2024/12/30</TD></TR> <TR><TD>01:38:09</TD></TR>  </TABLE> > fillcolor=lightgreen shape=circle style=filled]
-	1010 -> 102
-	102 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>102</TD></TR> <TR><TD>Jalapa</TD></TR> <TR><TD>Guatemala</TD></TR> <TR><TD>2024/12/30</TD></TR> <TR><TD>01:38:22</TD></TR>  </TABLE> > fillcolor=lightgreen shape=circle style=filled]
-	102 -> 1110123
-	1110123 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>1110123</TD></TR> <TR><TD>Peten</TD></TR> <TR><TD>Huehuetenango</TD></TR> <TR><TD>2024/12/30</TD></TR> <TR><TD>01:38:33</TD></TR>  </TABLE> > fillcolor=lightgreen shape=circle style=filled]
+	101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>101</TD></TR> <TR><TD>Cadiz</TD></TR> <TR><TD>Granada</TD></TR> <TR><TD>2024/12/30</TD></TR> <TR><TD>02:33:52</TD></TR>  </TABLE> > fillcolor=lightgreen shape=circle style=filled]
+	101 -> 100
+	100 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>100</TD></TR> <TR><TD>Sevilla</TD></TR> <TR><TD>Jaen</TD></TR> <TR><TD>2024/12/30</TD></TR> <TR><TD>02:34:09</TD></TR>  </TABLE> > fillcolor=lightgreen shape=circle style=filled]
+	100 -> 201
+	201 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>201</TD></TR> <TR><TD>Gerona</TD></TR> <TR><TD>Valladolid</TD></TR> <TR><TD>2024/12/30</TD></TR> <TR><TD>02:34:29</TD></TR>  </TABLE> > fillcolor=lightgreen shape=circle style=filled]
 }
