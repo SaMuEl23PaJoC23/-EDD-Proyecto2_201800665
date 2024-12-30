@@ -1,0 +1,8 @@
+digraph ListaViajes {
+	graph [rankdir=LR]
+	1010 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>1010</TD></TR> <TR><TD>Guatemala</TD></TR> <TR><TD>Peten</TD></TR> <TR><TD>2024/12/30</TD></TR> <TR><TD>01:38:09</TD></TR>  </TABLE> > fillcolor=lightgreen shape=circle style=filled]
+	1010 -> 102
+	102 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>102</TD></TR> <TR><TD>Jalapa</TD></TR> <TR><TD>Guatemala</TD></TR> <TR><TD>2024/12/30</TD></TR> <TR><TD>01:38:22</TD></TR>  </TABLE> > fillcolor=lightgreen shape=circle style=filled]
+	102 -> 1110123
+	1110123 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>1110123</TD></TR> <TR><TD>Peten</TD></TR> <TR><TD>Huehuetenango</TD></TR> <TR><TD>2024/12/30</TD></TR> <TR><TD>01:38:33</TD></TR>  </TABLE> > fillcolor=lightgreen shape=circle style=filled]
+}

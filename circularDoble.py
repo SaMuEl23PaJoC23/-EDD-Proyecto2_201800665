@@ -158,7 +158,7 @@ class CircularDoble():
             return DPIlista
 
         else:
-            print("No hay nada para ComboBox...")
+            print("No hay nada para ComboBox Clientes...")
             return []
     #----------------------------------------------------------
     def ImprimirCircular(self):
@@ -191,7 +191,7 @@ class CircularDoble():
             
             #Agrega nodos
             while True:
-                dot.node(str(temp.getDPI()), label='< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>'+str(temp.getDPI())+'</TD></TR> <TR><TD>'+temp.getNombres()+'</TD></TR> <TR><TD>'+temp.getApellidos()+'</TD></TR> <TR><TD>'+temp.getGenero()+'</TD></TR> <TR><TD>'+temp.getTelefono()+'</TD></TR> <TR><TD>'+temp.getDireccion()+'</TD></TR> </TABLE> >', style='filled', fillcolor='lightblue')
+                dot.node(str(temp.getDPI()), label='< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>'+str(temp.getDPI())+'</TD></TR> <TR><TD>'+temp.getNombres()+'</TD></TR> <TR><TD>'+temp.getApellidos()+'</TD></TR> <TR><TD>'+temp.getGenero()+'</TD></TR> <TR><TD>'+temp.getTelefono()+'</TD></TR> <TR><TD>'+temp.getDireccion()+'</TD></TR> </TABLE> >', shape='circle', style='filled', fillcolor='lightblue')
                 
                 #Agrega Enlaces dobles entre nodos
                 siguiente = temp.getDrchaCircular()
@@ -205,4 +205,4 @@ class CircularDoble():
             dot.render('Graph_Circular', format='png', view=True)   #view=True, permite ver automaticamente la imagen generada
 
         else:
-            print("Lista Vacia, no Graficar!")
+            print("Lista Circular Vacia, no Graficar!")

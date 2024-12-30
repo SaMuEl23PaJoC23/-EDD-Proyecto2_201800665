@@ -1,15 +1,141 @@
 digraph CircularClientes {
 	graph [rankdir=LR]
-	3001 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3001</TD></TR> <TR><TD>samuel</TD></TR> <TR><TD>pajoc</TD></TR> <TR><TD>masculino</TD></TR> <TR><TD>1234</TD></TR> <TR><TD>233445 dfgrgfdg</TD></TR> </TABLE> > fillcolor=lightblue style=filled]
-	3001 -> 221374732231
-	221374732231 -> 3001
-	221374732231 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>221374732231</TD></TR> <TR><TD> Jose Carlos</TD></TR> <TR><TD> Lopez Morales</TD></TR> <TR><TD> Masculino</TD></TR> <TR><TD> 54789832</TD></TR> <TR><TD> 19 Av. 17-01 Z.6 Ciudad de Guatemala</TD></TR> </TABLE> > fillcolor=lightblue style=filled]
-	221374732231 -> 342123954521
-	342123954521 -> 221374732231
-	342123954521 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>342123954521</TD></TR> <TR><TD> Gabriela</TD></TR> <TR><TD> Perez Sandoval</TD></TR> <TR><TD> Femenino</TD></TR> <TR><TD> 45621892</TD></TR> <TR><TD> 20 Calle 19-78 Z.7 Ciudad de Guatemala</TD></TR> </TABLE> > fillcolor=lightblue style=filled]
-	342123954521 -> 465321232212
-	465321232212 -> 342123954521
-	465321232212 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>465321232212</TD></TR> <TR><TD> Carlos Alejandro</TD></TR> <TR><TD> Flores Gomez</TD></TR> <TR><TD> Masculino</TD></TR> <TR><TD> 54678976</TD></TR> <TR><TD> 4ta Av. 12-08 Z.5 Ciudad de Guatemala</TD></TR> </TABLE> > fillcolor=lightblue style=filled]
-	465321232212 -> 3001
-	3001 -> 465321232212
+	3000853700101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700101</TD></TR> <TR><TD> Elian</TD></TR> <TR><TD> Estrada</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 35384675</TD></TR> <TR><TD> Villa Nueva Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700101 -> 3000853700102
+	3000853700102 -> 3000853700101
+	3000853700102 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700102</TD></TR> <TR><TD> Leila</TD></TR> <TR><TD> Gomez</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41538432</TD></TR> <TR><TD> Guatemala Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700102 -> 3000853700103
+	3000853700103 -> 3000853700102
+	3000853700103 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700103</TD></TR> <TR><TD> Emy</TD></TR> <TR><TD> Ruiz</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41538433</TD></TR> <TR><TD> Petapa Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700103 -> 3000853700104
+	3000853700104 -> 3000853700103
+	3000853700104 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700104</TD></TR> <TR><TD> Roxana</TD></TR> <TR><TD> Lopez</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41538434</TD></TR> <TR><TD> Mixco Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700104 -> 3000853700105
+	3000853700105 -> 3000853700104
+	3000853700105 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700105</TD></TR> <TR><TD> Angela</TD></TR> <TR><TD> Pelaez</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41538435</TD></TR> <TR><TD> Chiquimula Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700105 -> 3000853700106
+	3000853700106 -> 3000853700105
+	3000853700106 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700106</TD></TR> <TR><TD> Isabel</TD></TR> <TR><TD> Gutierrez</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41538436</TD></TR> <TR><TD> Peten Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700106 -> 3000853700107
+	3000853700107 -> 3000853700106
+	3000853700107 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700107</TD></TR> <TR><TD> Andrea</TD></TR> <TR><TD> Arriola</TD></TR> <TR><TD> F</TD></TR> <TR><TD>41538437</TD></TR> <TR><TD> Zona 1 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700107 -> 3000853700108
+	3000853700108 -> 3000853700107
+	3000853700108 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700108</TD></TR> <TR><TD> Abigail</TD></TR> <TR><TD> Solares</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41538438</TD></TR> <TR><TD> Zona 2 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700108 -> 3000853700109
+	3000853700109 -> 3000853700108
+	3000853700109 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700109</TD></TR> <TR><TD> Alejandra</TD></TR> <TR><TD> Rivera</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41538439</TD></TR> <TR><TD> Zona 3 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700109 -> 3000853700110
+	3000853700110 -> 3000853700109
+	3000853700110 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700110</TD></TR> <TR><TD> Paola</TD></TR> <TR><TD> Castillo</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41538414</TD></TR> <TR><TD> Zona 4 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700110 -> 3000853700121
+	3000853700121 -> 3000853700110
+	3000853700121 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700121</TD></TR> <TR><TD> Dominga</TD></TR> <TR><TD> Retana</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41538424</TD></TR> <TR><TD> Zona 5 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700121 -> 3000853700131
+	3000853700131 -> 3000853700121
+	3000853700131 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700131</TD></TR> <TR><TD> Luli</TD></TR> <TR><TD> Lopez</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41538404</TD></TR> <TR><TD> Zona 6 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700131 -> 3000853700141
+	3000853700141 -> 3000853700131
+	3000853700141 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700141</TD></TR> <TR><TD> Sebastian</TD></TR> <TR><TD> Retana</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41538444</TD></TR> <TR><TD> Zona 7 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700141 -> 3000853700151
+	3000853700151 -> 3000853700141
+	3000853700151 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700151</TD></TR> <TR><TD> Alejandro</TD></TR> <TR><TD> Arriola</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41538454</TD></TR> <TR><TD> Zona 8 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700151 -> 3000853700161
+	3000853700161 -> 3000853700151
+	3000853700161 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700161</TD></TR> <TR><TD> Samuel</TD></TR> <TR><TD> Ruiz</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41538464</TD></TR> <TR><TD> Zona 9 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700161 -> 3000853700171
+	3000853700171 -> 3000853700161
+	3000853700171 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700171</TD></TR> <TR><TD> Miguel</TD></TR> <TR><TD> Gomez</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41538474</TD></TR> <TR><TD> Zona 10 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700171 -> 3000853700181
+	3000853700181 -> 3000853700171
+	3000853700181 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700181</TD></TR> <TR><TD> Javier</TD></TR> <TR><TD> Pelaez</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41538484</TD></TR> <TR><TD> Zona 11 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700181 -> 3000853700191
+	3000853700191 -> 3000853700181
+	3000853700191 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700191</TD></TR> <TR><TD> Ulysses</TD></TR> <TR><TD> Benitez</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41538494</TD></TR> <TR><TD> Zona 12 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700191 -> 3000853700201
+	3000853700201 -> 3000853700191
+	3000853700201 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700201</TD></TR> <TR><TD> Pancho</TD></TR> <TR><TD> Orellana</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41538134</TD></TR> <TR><TD> Zona 13 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700201 -> 3000853700301
+	3000853700301 -> 3000853700201
+	3000853700301 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700301</TD></TR> <TR><TD> Maximiliano</TD></TR> <TR><TD> Rivera</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41538234</TD></TR> <TR><TD> Zona 14 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700301 -> 3000853700401
+	3000853700401 -> 3000853700301
+	3000853700401 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700401</TD></TR> <TR><TD> Sergio</TD></TR> <TR><TD> Castillo</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41538334</TD></TR> <TR><TD> Zona 15 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700401 -> 3000853700501
+	3000853700501 -> 3000853700401
+	3000853700501 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700501</TD></TR> <TR><TD> Daniel</TD></TR> <TR><TD> Castro</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41538034</TD></TR> <TR><TD> Zona 16 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700501 -> 3000853700601
+	3000853700601 -> 3000853700501
+	3000853700601 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700601</TD></TR> <TR><TD> Raul</TD></TR> <TR><TD> Pelaez</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41538534</TD></TR> <TR><TD> Villa Nueva Zona 2 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700601 -> 3000853700701
+	3000853700701 -> 3000853700601
+	3000853700701 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700701</TD></TR> <TR><TD> Oscar</TD></TR> <TR><TD> Gutierrez</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41538634</TD></TR> <TR><TD> Villa Nueva Zona 3 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700701 -> 3000853700801
+	3000853700801 -> 3000853700701
+	3000853700801 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700801</TD></TR> <TR><TD> Linda</TD></TR> <TR><TD> Retana2</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41538734</TD></TR> <TR><TD> Villa Nueva Zona 4 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700801 -> 3000853700901
+	3000853700901 -> 3000853700801
+	3000853700901 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853700901</TD></TR> <TR><TD> Flor</TD></TR> <TR><TD> Castillo</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41538834</TD></TR> <TR><TD> Villa Nueva Zona 5 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853700901 -> 3000853701101
+	3000853701101 -> 3000853700901
+	3000853701101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853701101</TD></TR> <TR><TD> Estephanie</TD></TR> <TR><TD> De Leon</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41538934</TD></TR> <TR><TD> Villa Nueva Zona 6 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853701101 -> 3000853702101
+	3000853702101 -> 3000853701101
+	3000853702101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853702101</TD></TR> <TR><TD> Alany</TD></TR> <TR><TD> Ixchel</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41531434</TD></TR> <TR><TD> Villa Nueva Zona 7 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853702101 -> 3000853703101
+	3000853703101 -> 3000853702101
+	3000853703101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853703101</TD></TR> <TR><TD> Roxana</TD></TR> <TR><TD> Pu</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41532434</TD></TR> <TR><TD> Villa Nueva  Zona 8 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853703101 -> 3000853704101
+	3000853704101 -> 3000853703101
+	3000853704101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853704101</TD></TR> <TR><TD> Amanda</TD></TR> <TR><TD> Taylor</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41533434</TD></TR> <TR><TD> Villa Nueva Zona 9 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853704101 -> 3000853705101
+	3000853705101 -> 3000853704101
+	3000853705101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853705101</TD></TR> <TR><TD> Sandra</TD></TR> <TR><TD> Martinez</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41534434</TD></TR> <TR><TD> Villa Nueva Zona 10 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853705101 -> 3000853706101
+	3000853706101 -> 3000853705101
+	3000853706101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853706101</TD></TR> <TR><TD> Angel</TD></TR> <TR><TD> Pelaez</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41535434</TD></TR> <TR><TD> Villa Nueva Zona 11 Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853706101 -> 3000853707101
+	3000853707101 -> 3000853706101
+	3000853707101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853707101</TD></TR> <TR><TD> Susely</TD></TR> <TR><TD> Gomez</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41536434</TD></TR> <TR><TD> Zona 1 de Mixco Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853707101 -> 3000853708101
+	3000853708101 -> 3000853707101
+	3000853708101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853708101</TD></TR> <TR><TD> Surely</TD></TR> <TR><TD> Juarez</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41537434</TD></TR> <TR><TD>Zona 2 de Mixco Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853708101 -> 3000853709101
+	3000853709101 -> 3000853708101
+	3000853709101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853709101</TD></TR> <TR><TD> Ashley</TD></TR> <TR><TD> Boanerges</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41530434</TD></TR> <TR><TD> Zona 3 de Mixco Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853709101 -> 3000853710101
+	3000853710101 -> 3000853709101
+	3000853710101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853710101</TD></TR> <TR><TD> Shirley</TD></TR> <TR><TD> Pinillos</TD></TR> <TR><TD> F</TD></TR> <TR><TD> 41539434</TD></TR> <TR><TD> Zona 4 de Mixco Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853710101 -> 3000853720101
+	3000853720101 -> 3000853710101
+	3000853720101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853720101</TD></TR> <TR><TD> Mynor</TD></TR> <TR><TD> Montserrat</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41518434</TD></TR> <TR><TD> Zona 5 de Mixco Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853720101 -> 3000853730101
+	3000853730101 -> 3000853720101
+	3000853730101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853730101</TD></TR> <TR><TD> Geovanni</TD></TR> <TR><TD> Chavez</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41528434</TD></TR> <TR><TD> Zona 6 de Mixco Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853730101 -> 3000853740101
+	3000853740101 -> 3000853730101
+	3000853740101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853740101</TD></TR> <TR><TD> Alex</TD></TR> <TR><TD> Sanabria</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41508434</TD></TR> <TR><TD> Zona 7 de Mixco Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853740101 -> 3000853750101
+	3000853750101 -> 3000853740101
+	3000853750101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853750101</TD></TR> <TR><TD> Ludwig</TD></TR> <TR><TD> Donis</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41548434</TD></TR> <TR><TD> Zona 8 de Mixco Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853750101 -> 3000853760101
+	3000853760101 -> 3000853750101
+	3000853760101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853760101</TD></TR> <TR><TD> Rafael</TD></TR> <TR><TD> Ruano</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41558434</TD></TR> <TR><TD> Zona 9 de Mixco Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853760101 -> 3000853770101
+	3000853770101 -> 3000853760101
+	3000853770101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853770101</TD></TR> <TR><TD> Christian</TD></TR> <TR><TD> Pelaez</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41568434</TD></TR> <TR><TD> Zona 10 de Mixco Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853770101 -> 3000853780101
+	3000853780101 -> 3000853770101
+	3000853780101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853780101</TD></TR> <TR><TD> Jian</TD></TR> <TR><TD> Gutierrez</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41578434</TD></TR> <TR><TD> Zona 11 de Mixco Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853780101 -> 3000853790101
+	3000853790101 -> 3000853780101
+	3000853790101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3000853790101</TD></TR> <TR><TD> Carlo</TD></TR> <TR><TD> Arriola</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41588434</TD></TR> <TR><TD> Zona 12 de Mixco Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3000853790101 -> 3001853700101
+	3001853700101 -> 3000853790101
+	3001853700101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3001853700101</TD></TR> <TR><TD> Hernaldo</TD></TR> <TR><TD> Juarez</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41598434</TD></TR> <TR><TD> Zona 13 de Mixco Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3001853700101 -> 3002853700101
+	3002853700101 -> 3001853700101
+	3002853700101 [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>3002853700101</TD></TR> <TR><TD> Luis</TD></TR> <TR><TD> Filomeno</TD></TR> <TR><TD> M</TD></TR> <TR><TD> 41138434</TD></TR> <TR><TD> Zona 14 de Mixco Guatemala</TD></TR> </TABLE> > fillcolor=lightblue shape=circle style=filled]
+	3002853700101 -> 3000853700101
+	3000853700101 -> 3002853700101
 }

@@ -1,0 +1,5 @@
+digraph ListaSimpleViaje {
+	graph [rankdir=LR]
+	Peten [label=< <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0"><TR><TD>Peten</TD></TR> <TR><TD>2024/12/30</TD></TR> <TR><TD>01:38:33</TD></TR>  </TABLE> > fillcolor=lightgreen shape=circle style=filled]
+	Peten -> Huehuetenango
+}
